@@ -257,6 +257,10 @@
       "Music": {
         "type": "dir",
         "children": {
+          "info.txt": {
+            "type": "file",
+            "content": "Btw, kalo mau setel lagu/media bisa pake command \"play\"."
+          },
           "unravel.mp3": {
             "type": "file",
             "isAudio": true,
