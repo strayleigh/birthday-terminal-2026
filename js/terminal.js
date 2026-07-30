@@ -35,9 +35,9 @@ export class TerminalApp {
     this.levels = await LevelsManager.fetchLevels();
 
     if (StorageManager.isCompleted()) {
-      const viewRewardBtn = document.getElementById("view-reward-btn");
-      if (viewRewardBtn) {
-        viewRewardBtn.classList.remove("hidden");
+      const viewGiftBtn = document.getElementById("view-gift-btn");
+      if (viewGiftBtn) {
+        viewGiftBtn.classList.remove("hidden");
       }
     }
 
@@ -118,10 +118,14 @@ export class TerminalApp {
       } catch (e) {}
     }, 150);
 
+    let resizeTimeout;
     window.addEventListener("resize", () => {
-      try {
-        fitAddon.fit();
-      } catch (e) {}
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        try {
+          fitAddon.fit();
+        } catch (e) {}
+      }, 80);
     });
 
     this.term.onData(data => this.handleInput(data));
@@ -144,7 +148,7 @@ export class TerminalApp {
     await sleep(600);
     this.term.writeln(" * Challenge     : Solve all levels");
     await sleep(600);
-    this.term.writeln(" * Reward        : Locked");
+    this.term.writeln(" * Gift          : Locked");
     await sleep(1000);
     this.term.writeln("");
     await sleep(400);
@@ -361,13 +365,13 @@ export class TerminalApp {
 
   handleGameCompleted() {
     this.term.writeln("\x1b[1;32m🎉 CONGRATULATIONS! ALL CHALLENGES COMPLETED! 🎉\x1b[0m");
-    this.term.writeln("\x1b[33mSession closed. Redirecting to reward vault...\x1b[0m");
+    this.term.writeln("\x1b[33mSession closed. Redirecting to gift vault...\x1b[0m");
 
     // Mark game as completed in storage
     StorageManager.setCompleted(true);
 
     setTimeout(() => {
-      window.location.href = "reward.html";
+      window.location.href = "gift.html";
     }, 2500);
   }
 

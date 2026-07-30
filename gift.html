@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birthday Gift</title>
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="gift-page-body">
+
+  <!-- Animated Network background -->
+  <canvas id="network-particles"></canvas>
+
+  <!-- Glowing background blobs -->
+  <div class="bg-glow-1"></div>
+  <div class="bg-glow-2"></div>
+
+  <!-- Cyber perspective grid -->
+  <div class="cyber-grid"></div>
+
+  <!-- Gift Box Container -->
+  <div id="gift-container" style="margin-top: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
+    <!-- Status Verification Screen -->
+    <div id="verification-screen" class="decrypting">
+      Verifying session credentials...
+    </div>
+
+    <!-- Decrypt Loading Screen -->
+    <div id="decrypt-screen" class="decrypting hidden">
+      Decrypting gift...
+    </div>
+
+    <!-- Loot Box / Vault -->
+    <div id="loot-box" class="vault-box hidden">
+      <div class="gift-logo-wrapper">
+        <div class="rotating-ring"></div>
+        <svg class="gift-logo" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22 6h-4.18C17.64 5.37 17.5 4.74 17.5 4c0-2.21-1.79-4-4-4-1.12 0-2.12.46-2.85 1.19L10 1.83l-.65-.64C8.62.46 7.62 0 6.5 0c-2.21 0-4 1.79-4 4 0 .74.14 1.37.32 2H2c-1.1 0-2 .9-2 2v3c0 .55.45 1 1 1h1v10c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V12h1c.55 0 1-.45 1-1V8c0-1.1-.9-2-2-2zM13.5 2c1.1 0 2 .9 2 2s-.9 2-2 2h-2c0-1.1.9-2 2-2zm-7 0c1.1 0 2 .9 2 2s-.9 2-2 2h-2c0-1.1.9-2 2-2zM12 22H5V12h7v10zm7 0h-5V12h5v10zm2-12H3V8h18v2z"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Digital Art Gift Card (Sleek and glowing) -->
+    <div id="steam-gift" class="steam-gift-card hidden">
+      <h2 class="gift-title" style="margin-top: 0;">Gift Unlocked</h2>
+      <p class="gift-subtitle" style="font-size: 0.9rem; line-height: 1.6; margin-bottom: 25px; text-align: justify;">Terima kasih sudah menyelesaikan challenge kecil ini sampai akhir. Barakallahu fii umrik. Semoga Allah SWT selalu memberikan kesehatan, keberkahan umur, kelancaran dalam kuliah, pekerjaan, dan setiap hal baik yang kamu usahakan. Semoga apa pun yang sedang kamu perjuangkan dimudahkan dan menjadi jalan menuju kebaikan.<br><br>Ini gambar hasil gabut btw, semoga suka :D </p>
+
+      <!-- 4 Artworks Grid Container -->
+      <div class="artworks-grid">
+        <!-- Card 1 -->
+        <div class="artwork-card">
+          <div class="artwork-preview">
+            <img src="images/gambar1.png" alt="Artwork 1">
+          </div>
+          <button class="btn-claim btn-download-card" onclick="const a=document.createElement('a'); a.href='images/gambar1.png'; a.download='gambar1.png'; a.click();">Download #1</button>
+        </div>
+        <!-- Card 2 -->
+        <div class="artwork-card">
+          <div class="artwork-preview">
+            <img src="images/gambar2.png" alt="Artwork 2">
+          </div>
+          <button class="btn-claim btn-download-card" onclick="const a=document.createElement('a'); a.href='images/gambar2.png'; a.download='gambar2.png'; a.click();">Download #2</button>
+        </div>
+
+        <!-- Section Header for Bonus Artworks in Bento Grid -->
+        <div class="bonus-header">
+          <span>Bonus :3</span>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="artwork-card">
+          <div class="artwork-preview">
+            <img src="images/gambar3.png" alt="Artwork 3">
+          </div>
+          <button class="btn-claim btn-download-card" onclick="const a=document.createElement('a'); a.href='images/gambar3.png'; a.download='gambar3.png'; a.click();">Download #3</button>
+        </div>
+        <!-- Card 4 -->
+        <div class="artwork-card">
+          <div class="artwork-preview">
+            <img src="images/gambar4.png" alt="Artwork 4">
+          </div>
+          <button class="btn-claim btn-download-card" onclick="const a=document.createElement('a'); a.href='images/gambar4.png'; a.download='gambar4.png'; a.click();">Download #4</button>
+        </div>
+      </div>
+      
+      <br>
+      <a href="index.html" class="btn-back-link" style="margin-top: 15px;">← Back to Terminal</a>
+    </div>
+  </div>
+
+  <!-- Premium Intro Modal Popup -->
+  <div id="intro-modal" class="modal-overlay hidden">
+    <div class="gift-modal">
+      <div class="modal-glow"></div>
+      <h2 class="gift-title" style="margin-top: 0; text-align: center;">Gift Unlocked</h2>
+      <div class="gift-modal-content">
+        <p style="text-align: justify; text-justify: inter-word;">Terima kasih sudah menyelesaikan challenge kecil ini sampai akhir. Barakallahu fii umrik. Semoga Allah SWT selalu memberikan kesehatan, keberkahan umur, kelancaran dalam kuliah, pekerjaan, dan setiap hal baik yang kamu usahakan. Semoga apa pun yang sedang kamu perjuangkan dimudahkan dan menjadi jalan menuju kebaikan.</p>
+        <p style="margin-top: 15px; text-align: center; font-weight: bold; color: var(--accent-color);">Ini gambar hasil gabut btw, semoga suka :D</p>
+      </div>
+      <div class="modal-footer">
+        <span>[ Click anywhere to continue ]</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Application Module Entry for Gift Page -->
+  <script type="module" src="js/gift.js"></script>
+</body>
+</html>

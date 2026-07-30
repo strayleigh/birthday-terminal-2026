@@ -16,7 +16,7 @@
 
 /* Theme Classes Overrides on Body */
 body.theme-ubuntu {
-  --bg-color: #2c001e;
+  --bg-color: #300a24;
   --panel-bg: rgba(48, 10, 36, 0.7);
   --border-color: rgba(233, 84, 32, 0.35);
   --accent-color: #e95420;
@@ -215,9 +215,42 @@ header {
 }
 
 @media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+  
+  .status-section {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+  }
+
   .main-layout {
     flex-direction: column;
     height: auto;
+    gap: 15px;
+  }
+
+  .terminal-window {
+    height: 420px;
+  }
+
+  .terminal-body-wrapper {
+    padding: 12px 60px 5px 12px;
+  }
+  .terminal-body {
+    padding: 0;
+  }
+
+  .sidebar-layout {
+    width: 100%;
+  }
+
+  .app-container {
+    padding: 10px 10px 25px 10px;
   }
 }
 
@@ -229,12 +262,13 @@ header {
   position: relative;
   overflow: hidden;
   background-color: var(--bg-color);
+  padding: 15px 30px 5px 15px;
 }
 
 
 .terminal-body {
-  padding: 15px 60px 5px 15px;
-  height: calc(100% - 10px);
+  padding: 0;
+  height: 100%;
   min-height: 260px;
 }
 
@@ -276,11 +310,6 @@ header {
   gap: 20px;
 }
 
-@media (max-width: 768px) {
-  .sidebar-layout {
-    width: 100%;
-  }
-}
 
 .sidebar-section {
   display: flex;
@@ -376,8 +405,8 @@ header {
   background: var(--text-muted);
 }
 
-/* Reward screen layout */
-#reward-container {
+/* Gift screen layout */
+#gift-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -832,7 +861,7 @@ footer a:hover {
   color: var(--accent-color);
 }
 
-.btn-view-reward {
+.btn-view-gift {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -849,7 +878,7 @@ footer a:hover {
   transition: all 0.2s ease;
 }
 
-.btn-view-reward:hover {
+.btn-view-gift:hover {
   border-color: var(--accent-color);
   box-shadow: 0 0 10px var(--accent-glow);
   background: var(--accent-glow);
@@ -910,4 +939,233 @@ footer a:hover {
 /* Hide xterm.js scrollbar track to ensure clean symmetric borders */
 .xterm .xterm-viewport {
   overflow-y: hidden !important;
+}
+
+/* Artworks Bento Grid Layout */
+.artworks-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 240px 40px 240px;
+  gap: 15px;
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+.artwork-card {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  width: 100%;
+  box-sizing: border-box;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Bento Grid Spanning Setup */
+.artwork-card:nth-child(1) {
+  grid-column: span 2;
+  grid-row: 1;
+}
+
+.artwork-card:nth-child(2) {
+  grid-column: 3;
+  grid-row: 1 / 4;
+}
+
+.bonus-header {
+  grid-column: span 2;
+  grid-row: 2;
+  display: flex;
+  align-items: center;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: var(--accent-color);
+  text-shadow: 0 0 5px var(--accent-glow);
+  letter-spacing: 0.5px;
+  border-bottom: 1px dashed var(--border-color);
+  padding-bottom: 5px;
+}
+
+.artwork-card:nth-child(4) {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+.artwork-card:nth-child(5) {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+.artwork-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent-color);
+  box-shadow: 0 0 15px var(--accent-glow);
+}
+
+.artwork-preview {
+  width: 100%;
+  flex-grow: 1;
+  min-height: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.artwork-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.btn-download-card {
+  width: 100%;
+  padding: 10px 16px !important;
+  font-size: 0.95rem !important;
+  font-weight: bold;
+  margin-top: 0 !important;
+  border-radius: 6px !important;
+  flex-shrink: 0;
+}
+
+/* Make gift card container wider to fit Bento nicely */
+#gift-container .steam-gift-card {
+  max-width: 800px;
+}
+
+/* Responsive Bento to stacked single column on mobile */
+@media (max-width: 768px) {
+  .artworks-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-auto-rows: auto;
+    gap: 15px;
+  }
+  
+  .bonus-header {
+    grid-column: span 1;
+    grid-row: auto;
+    margin-top: 10px;
+    padding-top: 10px;
+  }
+
+  .artwork-card:nth-child(1),
+  .artwork-card:nth-child(2),
+  .artwork-card:nth-child(4),
+  .artwork-card:nth-child(5) {
+    grid-column: span 1;
+    grid-row: auto;
+    height: auto;
+  }
+
+  .artwork-preview {
+    aspect-ratio: 16/9;
+    height: auto;
+  }
+
+  #gift-container .steam-gift-card {
+    max-width: 95%;
+  }
+}
+
+/* Premium Intro Modal Popup Styling */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.modal-overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.gift-modal {
+  position: relative;
+  background: rgba(10, 10, 15, 0.96);
+  border: 2px solid var(--accent-color);
+  box-shadow: 0 0 35px var(--accent-glow);
+  border-radius: 16px;
+  width: 90%;
+  max-width: 480px;
+  padding: 30px;
+  text-align: justify;
+  transform: scale(0.9);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal-overlay.show .gift-modal {
+  transform: scale(1);
+}
+
+.gift-modal-content p {
+  font-size: 0.95rem;
+  line-height: 1.62;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.modal-footer {
+  margin-top: 25px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  animation: pulseDismiss 2s infinite;
+}
+
+@keyframes pulseDismiss {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* Mobile overrides for sidebar width and alignment */
+@media (max-width: 768px) {
+  .sidebar-layout {
+    width: 100% !important;
+  }
+  .sidebar-panel {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* Gift Page Body Styling and Scroll Support */
+.gift-page-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  overflow-y: auto;
+  background-color: #000;
+}
+
+@media (max-width: 768px) {
+  .gift-page-body {
+    justify-content: flex-start;
+    align-items: center;
+    padding: 30px 0;
+    height: auto;
+    overflow-y: auto;
+  }
 }

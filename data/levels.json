@@ -3,12 +3,12 @@
     "level": 1,
     "title": "Level 1",
     "description": "Read readme.txt to find the first flag",
-    "hint": "Use 'ls' to see the files, and 'cat readme.txt' to read its contents.",
+    "hint": "Lihatlah semua file yang ada di folder ini. Setelah menemukannya, bukalah lembaran pesan sambutan tersebut.",
     "flag": "FLAG{w3lc0m3_t0_th3_sh3ll}",
     "fs_nodes": {
       "readme.txt": {
         "type": "file",
-        "content": "Kalau kamu berhasil membuka file ini, berarti kamu\nsudah menemukan langkah pertama.\nMasih ada beberapa level lagi yang menunggu.\nSelamat mencoba!\n\nFlag pertama:\nFLAG{w3lc0m3_t0_th3_sh3ll}\n\nSubmit menggunakan:\nsubmit FLAG{w3lc0m3_t0_th3_sh3ll}"
+        "content": "Selamat datang! kamu sudah melakukan langkah pertama.\nChallenge ini ada 5 level, selamat mencoba!\n\nFlag pertama:\nFLAG{w3lc0m3_t0_th3_sh3ll}\n\nSubmit menggunakan:\nsubmit FLAG{w3lc0m3_t0_th3_sh3ll}\n\nOhiya, kalo bingung commandnya ketik aja \"help\".\nTiap level juga ada hint, cara pakainya ketik aja \"hint\" di terminal.\nGood Luck~"
       }
     }
   },
@@ -16,7 +16,7 @@
     "level": 2,
     "title": "Level 2",
     "description": "Decode the double-encoded flag",
-    "hint": "Use 'base64 -d encoded.txt' to decode the base64 layer, then decode the ROT13 cipher using the 'rot13' command.",
+    "hint": "Ada rahasia yang terbungkus dua lapis sandi. Bongkar segel pertama dengan bahasa berbasis angka 64, lalu putar hasilnya sejauh 13 langkah (rotasi) untuk melihat isinya.",
     "flag": "FLAG{t3rm1n4l_3nj0y3r}",
     "fs_nodes": {
       "readme.txt": {
@@ -33,12 +33,12 @@
     "level": 3,
     "title": "Level 3",
     "description": "Inspect image metadata",
-    "hint": "Use 'exiftool walter.png' to check the metadata. Decode the hex XP Comment using: echo <hex> | xxd -r -p.",
+    "hint": "Mata biasa hanya melihat piksel gambar, tetapi detektif sejati mencari informasi tersembunyi di baliknya. Jika menemukan rangkaian kode misterius, ubahlah kembali ke teks biasa.",
     "flag": "FLAG{h31s3nb3rg}",
     "fs_nodes": {
       "info.txt": {
         "type": "file",
-        "content": "Sherlock Holmes tidak pernah hanya melihat.\nIa juga memperhatikan."
+        "content": "Sherlock Holmes tidak pernah hanya melihat.\nIa juga memperhatikan.\n\nGunakan command feh (gambar) untuk melihat gambar."
       },
       "walter.png": {
         "type": "file",
@@ -51,7 +51,7 @@
     "level": 4,
     "title": "Level 4",
     "description": "Identify ASCII text file",
-    "hint": "Use 'file inhere/*' or 'file inhere/-file06' to see type of file.",
+    "hint": "Jangan membuka berkas biner satu-satu secara acak. Mintalah bantuan terminal untuk mengidentifikasi tipe dari masing-masing berkas agar kamu menemukan satu-satunya berkas teks biasa (ASCII text).",
     "flag": "FLAG{p4k_4b4n_g4n73n9}",
     "fs_nodes": {
       "inhere": {
@@ -114,7 +114,7 @@
     "level": 5,
     "title": "Level 5",
     "description": "Base64 decode file",
-    "hint": "Use 'base64 -d encoded.txt' to decode the text.",
+    "hint": "Flag kali ini telah dipecah menjadi 5 potongan teks di berbagai sudut folder. Periksa komentar rahasia (metadata) pada gambar-gambar, catatan pelatihan P4 & PKK di Documents, serta skrip misterius di Downloads, lalu satukan kelimanya.",
     "flag": "FLAG{wh3r3_1s_3v3ry0n3_g01ng?_b1ng0?}",
     "fs_nodes": {
       "Desktop": {
@@ -240,15 +240,15 @@
           "jangan_dibuka.mp4": {
             "type": "file",
             "isVideo": true,
-            "content": "https://archive.org/download/Rick_Astley_Never_Gonna_Give_You_Up/Rick_Astley_Never_Gonna_Give_You_Up.mp4"
+            "content": "images/jgn_dibuka.mp4"
           },
-          "sisi_ireng": {
+          "literally_me": {
             "type": "dir",
             "children": {
-              "join_the_dark_side.jpeg": {
+              "ryan_gosling.jpg": {
                 "type": "file",
                 "isImage": true,
-                "content": "images/join_the_dark_side.jpeg"
+                "content": "images/ryan_gosling.jpg"
               }
             }
           }
@@ -281,7 +281,7 @@
       },
       "info.txt": {
         "type": "file",
-        "content": "1. Selesaikan challenge ini.\n2. Cari flag dari folder.\n3. Simpan dan kumpulkan flag yang didapatkan.\n4. Jangan lupa bilang 'I use Arch btw' ke semua orang."
+        "content": "1. Selesaikan challenge ini.\n2. Cari flag dari folder.\n3. Simpan dan kumpulkan flag yang didapatkan.\n4. Jangan lupa bilang 'I use Arch btw' ke semua orang.\n\nOiya, kalo mau buka media bisa pake command \"feh (nama file)\" atau \"play (nama file)\""
       }
     }
   }

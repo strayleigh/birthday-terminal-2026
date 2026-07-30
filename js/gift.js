@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
       let dots = 0;
       const interval = setInterval(() => {
         dots = (dots + 1) % 4;
-        decryptScreen.textContent = "Decrypting reward" + ".".repeat(dots);
+        decryptScreen.textContent = "Decrypting gift" + ".".repeat(dots);
       }, 400);
 
       // Show Vault after decryption loading finished
@@ -61,6 +61,29 @@ document.addEventListener("DOMContentLoaded", () => {
       lootBox.classList.add("hidden");
       steamGift.classList.remove("hidden");
       steamGift.classList.add("reveal");
+
+      // Show the premium intro modal popup
+      const introModal = document.getElementById("intro-modal");
+      if (introModal) {
+        introModal.classList.remove("hidden");
+        // Force browser layout reflow before adding transition class
+        introModal.offsetHeight;
+        introModal.classList.add("show");
+
+        // Setup dismiss listener
+        const dismissModal = () => {
+          introModal.classList.remove("show");
+          setTimeout(() => {
+            introModal.classList.add("hidden");
+          }, 400);
+          window.removeEventListener("click", dismissModal);
+        };
+
+        // Delay registering click listener to prevent instant dismissal
+        setTimeout(() => {
+          window.addEventListener("click", dismissModal);
+        }, 150);
+      }
     }, 1000);
   });
 });

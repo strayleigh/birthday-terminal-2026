@@ -482,15 +482,17 @@ export class CommandsProcessor {
     const uptimeStr = mins > 0 ? `${mins} mins, ${secs} secs` : `${secs} secs`;
 
     const user = `alief${this.app.currentLevelIndex + 1}`;
-    return `\x1b[33m       ,,,,,         \x1b[1;32m${user}\x1b[0m@\x1b[1;32mchall\x1b[0m
-\x1b[33m      |||||||        \x1b[0m---------------------
-\x1b[33m    ===========\x1b[0m      \x1b[1;36mOS\x1b[0m: challengeOS 1.0 LTS
-\x1b[33m   {|   *   |}\x1b[0m      \x1b[1;36mKernel\x1b[0m: 6.16.0-chall x86_64
-\x1b[33m   {|  * *  |}\x1b[0m      \x1b[1;36mUptime\x1b[0m: ${uptimeStr}
-\x1b[33m  =============\x1b[0m     \x1b[1;36mShell\x1b[0m: custom-js-sh
-\x1b[33m  {|  HAPPY  |}\x1b[0m     \x1b[1;36mCPU\x1b[0m: Intel Core i7-Happy-Birthday
-\x1b[33m  {| BIRTHDAY|}\x1b[0m     \x1b[1;36mMemory\x1b[0m: 256MB / 1GB
-\x1b[33m  =============\x1b[0m     \x1b[1;36mHost\x1b[0m: chall`;
+    return [
+      `\x1b[1;36m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\x1b[0m  \x1b[1;32m${user}\x1b[0m@\x1b[1;32mchall\x1b[0m`,
+      `\x1b[1;36m⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⣀⣀⡀⠀⠀⠀⠀⠀⠀\x1b[0m  ---------------------`,
+      `\x1b[1;36m⠀⠀⠀⢀⡤⠤⡤⠞⠁⠀⡀⠀⠨⡙⠦⡠⠤⠀⠀⠀\x1b[0m  \x1b[1;36mOS\x1b[0m: challengeOS 1.0 LTS`,
+      `\x1b[1;36m⠀⠀⠀⡛⢐⠉⡠⠂⠀⡰⠣⣀⠀⠑⠄⠈⡄⢃⠀⠀\x1b[0m  \x1b[1;36mKernel\x1b[0m: 6.16.0-chall x86_64`,
+      `\x1b[1;36m⠀⠀⠀⡇⡸⠀⡄⣀⡾⠀⠀⢠⣽⢄⢀⠢⠸⠸⡀⠀\x1b[0m  \x1b[1;36mUptime\x1b[0m: ${uptimeStr}`,
+      `\x1b[1;36m⠲⣒⢞⢺⡁⢸⠊⣠⡄⠀⠀⢠⣄⠈⡇⠰⣾⠚⢖⠖\x1b[0m  \x1b[1;36mShell\x1b[0m: custom-js-sh`,
+      `\x1b[1;36m⠀⠀⢑⡶⣙⣦⢣⠀⠀⡀⡀⡀⠀⠀⣅⢤⣜⠕⠉⠀\x1b[0m  \x1b[1;36mCPU\x1b[0m: Intel Core i67`,
+      `\x1b[1;36m⠀⠀⡇⠃⢺⠞⠛⢧⣀⣉⣉⢀⣀⠭⠿⢬⣄⢘⠀⠀\x1b[0m  \x1b[1;36mMemory\x1b[0m: 256MB / 1GB`,
+      `\x1b[1;36m⠀⢸⠁⢀⢻⠀⠀⡎⠀⠐⠒⠓⡄⠀⠹⠀⢸⢟⠿⠀\x1b[0m  \x1b[1;36mHost\x1b[0m: chall`
+    ].join("\r\n");
   }
 
   handleView(args) {
@@ -624,6 +626,33 @@ Image Size                      : 800x800
 Megapixels                      : 0.64`;
     }
 
+    if (pathStr.endsWith("ryan_gosling.jpg") || pathStr.endsWith("ryan_gosling.jpeg")) {
+      return `ExifTool Version Number         : 13.55
+File Name                       : ryan_gosling.jpg
+Directory                       : .
+File Size                       : 29 kB
+File Modification Date/Time     : 2026:07:30 21:08:25+07:00
+File Access Date/Time           : 2026:07:30 21:08:25+07:00
+File Inode Change Date/Time     : 2026:07:30 21:08:25+07:00
+File Permissions                : -rw-r--r--
+File Type                       : JPEG
+File Type Extension             : jpg
+MIME Type                       : image/jpeg
+JFIF Version                    : 1.01
+Resolution Unit                 : inches
+X Resolution                    : 72
+Y Resolution                    : 72
+Comment                         : g01ng
+Image Width                     : 506
+Image Height                    : 505
+Encoding Process                : Progressive DCT, Huffman coding
+Bits Per Sample                 : 8
+Color Components                : 3
+Y Cb Cr Sub Sampling            : YCbCr4:2:0 (2 2)
+Image Size                      : 506x505
+Megapixels                      : 0.256`;
+    }
+
     if (pathStr.endsWith("foto_dari_galang.jpeg")) {
       return `ExifTool Version Number         : 12.40
 File Name                       : foto_dari_galang.jpeg
@@ -634,7 +663,7 @@ File Permissions                : -rw-r--r--
 File Type                       : JPEG
 File Type Extension             : jpeg
 MIME Type                       : image/jpeg
-Comment                         : b1ng0?`;
+Comment                         : ?_b1ng0?`;
     }
 
     if (pathStr.endsWith("join_the_dark_side.jpeg")) {
