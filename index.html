@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>birthday-terminal</title>
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <!-- SEO & Styling Meta -->
+  <meta name="description" content="Sebuah website tantangan terminal Linux personal untuk hadiah ulang tahun.">
+  
+  <!-- Preconnect and import JetBrains Mono font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- xterm.js CSS from CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xterm@5.3.0/css/xterm.min.css" />
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Animated Network background -->
+  <canvas id="network-particles"></canvas>
+
+  <!-- Glowing background blobs -->
+  <div class="bg-glow-1"></div>
+  <div class="bg-glow-2"></div>
+
+  <!-- Cyber perspective grid -->
+  <div class="cyber-grid"></div>
+
+  <!-- Header -->
+  <header>
+    <div class="header-content">
+      <div class="logo-section">
+        <h1><span class="terminal-prompt">&gt;_</span> birthday-terminal<span class="glow-dot"></span></h1>
+      </div>
+      <div class="status-section">
+        <a id="view-reward-btn" href="reward.html" class="btn-view-reward hidden">🎁 View Reward</a>
+        <div class="theme-select-container">
+          <select id="theme-selector" class="theme-select">
+            <option value="dark">Dark</option>
+            <option value="ubuntu">Ubuntu</option>
+            <option value="dracula">Dracula</option>
+          </select>
+        </div>
+        <span id="level-progress">Level 1 ● ○ ○ ○ ○</span>
+        <button id="reset-progress" class="btn-secondary">Reset</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="app-container">
+
+    <!-- Main Split Layout Container -->
+    <div class="main-layout" id="terminal-layout-container">
+      <!-- Main Terminal Window Container -->
+      <main class="terminal-window">
+        <div class="window-header">
+          <div class="dot red"></div>
+          <div class="dot yellow"></div>
+          <div class="dot green"></div>
+          <div class="window-title">alief@chall:~</div>
+        </div>
+        <div class="terminal-body-wrapper">
+          <div class="terminal-body" id="terminal-container">
+            <!-- xterm.js will mount here -->
+          </div>
+          <!-- Subtle CRT Screen Glare & Scanline Overlay -->
+          <div class="crt-overlay"></div>
+        </div>
+        <!-- Keyboard shortcuts legend bar -->
+        <div class="terminal-footer-shortcuts">
+          <span><kbd>Tab</kbd> Autocomplete</span>
+          <span><kbd>Ctrl+C</kbd> Cancel / Copy</span>
+          <span><kbd>↑</kbd><kbd>↓</kbd> History</span>
+          <span><kbd>help</kbd> Commands</span>
+          <span><kbd>hint</kbd> Clues</span>
+        </div>
+      </main>
+
+      <!-- Sleek Sidebar Diagnostics Column (Outside the terminal box) -->
+      <aside class="sidebar-layout">
+        <!-- Widget 1: Diagnostics -->
+        <div class="sidebar-panel">
+          <div class="sidebar-section">
+            <h3>System Diagnostics</h3>
+            <div class="stat-item">
+              <span class="stat-label">Host:</span>
+              <span class="stat-value">chall</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Status:</span>
+              <span class="stat-value text-green"><span class="pulse-indicator"></span> Online</span>
+            </div>
+          </div>
+          <div class="sidebar-section">
+            <h3>Resources</h3>
+            <div class="stat-bar-container">
+              <div class="bar-header">
+                <span>CPU Usage</span>
+                <span id="cpu-value">4%</span>
+              </div>
+              <div class="bar-bg">
+                <div class="bar-fill" id="cpu-fill" style="width: 4%"></div>
+              </div>
+            </div>
+            <div class="stat-bar-container">
+              <div class="bar-header">
+                <span>RAM Usage</span>
+                <span id="ram-value">256MB / 1GB</span>
+              </div>
+              <div class="bar-bg">
+                <div class="bar-fill" id="ram-fill" style="width: 25%"></div>
+              </div>
+            </div>
+          </div>
+          <div class="sidebar-section">
+            <h3>Session Info</h3>
+            <div class="stat-item">
+              <span class="stat-label">User:</span>
+              <span class="stat-value">alief</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Uptime:</span>
+              <span class="stat-value" id="uptime-value">00:00:00</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Widget 2: Level Progress -->
+        <div class="sidebar-panel">
+          <div class="sidebar-section">
+            <h3>Level Progress</h3>
+            <div class="stage-progress-list" id="stage-list-container">
+              <!-- Populated dynamically -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Widget 3: Achievements -->
+        <div class="sidebar-panel">
+          <div class="sidebar-section">
+            <h3>Achievements</h3>
+            <div class="achievements-list">
+              <div class="achievement-item" id="ach-stage1">
+                <span class="ach-checkbox">☐</span> <span class="ach-text">Level 1: Hello Linux</span>
+              </div>
+              <div class="achievement-item" id="ach-stage2">
+                <span class="ach-checkbox">☐</span> <span class="ach-text">Level 2: Cat Enjoyer</span>
+              </div>
+              <div class="achievement-item" id="ach-stage3">
+                <span class="ach-checkbox">☐</span> <span class="ach-text">Level 3: Say My Name</span>
+              </div>
+              <div class="achievement-item" id="ach-stage4">
+                <span class="ach-checkbox">☐</span> <span class="ach-text">Level 4: Linux Larper</span>
+              </div>
+              <div class="achievement-item" id="ach-stage5">
+                <span class="ach-checkbox">☐</span> <span class="ach-text">Level 5: I use Arch btw</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+  </div>
+
+  <!-- Graphical Image Viewer Overlay (Hidden by default) -->
+  <div id="image-viewer" class="hidden">
+    <div class="image-viewer-window">
+      <div class="window-header">
+        <div class="dot red" id="close-image-viewer"></div>
+        <div class="dot yellow"></div>
+        <div class="dot green"></div>
+        <div class="window-title" id="image-viewer-title">feh: image.png</div>
+      </div>
+      <div class="image-viewer-body">
+        <img id="image-viewer-content" src="" alt="viewer">
+        <video id="video-viewer-content" src="" controls class="hidden" style="max-width: 100%; max-height: 100%; object-fit: contain;"></video>
+        <audio id="audio-viewer-content" src="" controls class="hidden" style="width: 100%; margin-top: 15px;"></audio>
+        <iframe id="youtube-viewer-content" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="hidden" style="width: 100%; height: 350px; border: none;"></iframe>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- xterm.js CDN scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/xterm@5.3.0/lib/xterm.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.8.0/lib/xterm-addon-fit.min.js"></script>
+
+  <!-- Application Module Entry -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

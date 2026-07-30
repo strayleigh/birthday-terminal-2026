@@ -1,0 +1,288 @@
+[
+  {
+    "level": 1,
+    "title": "Level 1",
+    "description": "Read readme.txt to find the first flag",
+    "hint": "Use 'ls' to see the files, and 'cat readme.txt' to read its contents.",
+    "flag": "FLAG{w3lc0m3_t0_th3_sh3ll}",
+    "fs_nodes": {
+      "readme.txt": {
+        "type": "file",
+        "content": "Kalau kamu berhasil membuka file ini, berarti kamu\nsudah menemukan langkah pertama.\nMasih ada beberapa level lagi yang menunggu.\nSelamat mencoba!\n\nFlag pertama:\nFLAG{w3lc0m3_t0_th3_sh3ll}\n\nSubmit menggunakan:\nsubmit FLAG{w3lc0m3_t0_th3_sh3ll}"
+      }
+    }
+  },
+  {
+    "level": 2,
+    "title": "Level 2",
+    "description": "Decode the double-encoded flag",
+    "hint": "Use 'base64 -d encoded.txt' to decode the base64 layer, then decode the ROT13 cipher using the 'rot13' command.",
+    "flag": "FLAG{t3rm1n4l_3nj0y3r}",
+    "fs_nodes": {
+      "readme.txt": {
+        "type": "file",
+        "content": "Level ini sedikit berbeda.\n\nFlag sudah disembunyikan menggunakan dua metode encoding.\nCari file yang tersedia, lalu kembalikan ke bentuk semula.\n\nPetunjuk:\nUrutan decoding juga penting."
+      },
+      "encoded.txt": {
+        "type": "file",
+        "content": "U1lOVHtnM2V6MWE0eV8zYXcwbDNlfQ=="
+      }
+    }
+  },
+  {
+    "level": 3,
+    "title": "Level 3",
+    "description": "Inspect image metadata",
+    "hint": "Use 'exiftool walter.png' to check the metadata. Decode the hex XP Comment using: echo <hex> | xxd -r -p.",
+    "flag": "FLAG{h31s3nb3rg}",
+    "fs_nodes": {
+      "info.txt": {
+        "type": "file",
+        "content": "Sherlock Holmes tidak pernah hanya melihat.\nIa juga memperhatikan."
+      },
+      "walter.png": {
+        "type": "file",
+        "isImage": true,
+        "content": "images/walter.png"
+      }
+    }
+  },
+  {
+    "level": 4,
+    "title": "Level 4",
+    "description": "Identify ASCII text file",
+    "hint": "Use 'file inhere/*' or 'file inhere/-file06' to see type of file.",
+    "flag": "FLAG{p4k_4b4n_g4n73n9}",
+    "fs_nodes": {
+      "inhere": {
+        "type": "dir",
+        "children": {
+          "-file01": {
+            "type": "file",
+            "isBinary": true,
+            "content": "ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked"
+          },
+          "-file02": {
+            "type": "file",
+            "isBinary": true,
+            "content": "PNG image data, 800 x 600, 8-bit/color RGBA, non-interlaced"
+          },
+          "-file03": {
+            "type": "file",
+            "isBinary": true,
+            "content": "Zip archive data, at least v2.0 to extract"
+          },
+          "-file04": {
+            "type": "file",
+            "isBinary": true,
+            "content": "data"
+          },
+          "-file05": {
+            "type": "file",
+            "isBinary": true,
+            "content": "JPEG image data, JFIF standard 1.01"
+          },
+          "-file06": {
+            "type": "file",
+            "content": "ASCII text\n\nSelamat! Ini adalah satu-satunya file teks biasa di sini.\nFlag level 4: FLAG{p4k_4b4n_g4n73n9}"
+          },
+          "-file07": {
+            "type": "file",
+            "isBinary": true,
+            "content": "compiled Java class data, version 61.0 (Java 17)"
+          },
+          "-file08": {
+            "type": "file",
+            "isBinary": true,
+            "content": "PDF document, version 1.4"
+          },
+          "-file09": {
+            "type": "file",
+            "isBinary": true,
+            "content": "gzip compressed data, was \"flag.txt\", last modified: Tue Jul 25 09:50:00 2026"
+          },
+          "-file10": {
+            "type": "file",
+            "isBinary": true,
+            "content": "data"
+          }
+        }
+      }
+    }
+  },
+  {
+    "level": 5,
+    "title": "Level 5",
+    "description": "Base64 decode file",
+    "hint": "Use 'base64 -d encoded.txt' to decode the text.",
+    "flag": "FLAG{wh3r3_1s_3v3ry0n3_g01ng?_b1ng0?}",
+    "fs_nodes": {
+      "Desktop": {
+        "type": "dir",
+        "children": {
+          "shortcut_to_happiness.lnk": {
+            "type": "file",
+            "content": "Error: file not found. Happiness is not a shortcut, it's a journey."
+          }
+        }
+      },
+      "Documents": {
+        "type": "dir",
+        "children": {
+          "secret_stuff": {
+            "type":"dir",
+            "children": {
+              "tutorial_jadi_hengker.txt": {
+                "type": "file",
+                "content": "1. Jangan mandi\n2. Buka terimnal (wajib warna ijo)\n3. Hack website nya pak Aban"
+              },
+              "teori_konspirasi.txt": {
+                "type": "file",
+                "content": "Bumi itu datar.\n\nSource: trust me bro"
+              },
+              "menu_rahasia_mbg.txt": {
+                "type": "file",
+                "content": "=== RESEP MBG ===\nBahan:\n- Nasi\n- Telur\n- Sayur\n- Buah\n- Susu\n\nCara membuat:\n1. Pastikan matang\n2. Pastikan higienis\n3. Pastikan besok tidak jadi berita"
+              },
+              "notes": {
+                "type": "dir",
+                "children": {
+                  "quotes.txt": {
+                    "type": "file",
+                    "content": "Above all, do not lie to yourself."
+                  },
+                  "ztech.txt": {
+                    "type": "file",
+                    "content": "Masi inget ga dulu kelas 11 kelompok PKK ngebuat powerbank yang fail terus awokawok, bareng aris juga waktu itu. Biaya sama harga jual gak balik modal wkwkwk, tapi jujur pas udah jadi keren sih, walau dikasih harga overprice WKWKWKWK.\n\nBtw nih\nFlag fragment: wh3r3_"
+                  },
+                  "p4.txt": {
+                    "type": "file",
+                    "content": "Dulu waktu ikut pelatihan P4 yang bareng aksa dan barengan sama galang juga, inget ga pernah tiba-tiba satu ruangan tuh gaada internet. Asesornya udah manggil-manggil tim IT nya buat troubleshoot berjam-jam masih aja mati internetnya. EH GATAUNYA AP NYA DICABUT SAMA ANAK SMK YG DUDUK DI SEBELAH WKWKWKWK KOCAK BAT, mana aksa waktu itu nyolok PC ampe meledup itu colokannya awokowakowak, terus juga lu ngeyel pas ditanyain asesor \"ini switch knp pake kabel straight\" lu dengan pd nya berkata \"yakan jaman sekarang udah bisa dua duanya\" WKWKWKWK"
+                  }
+                }
+              }
+            } 
+          },
+          "teto.txt": {
+            "type": "file",
+            "content": "=== Teto Word of the Day ===\n\nSAWIT\n\nKalau tahu, ya tahu."
+          }
+        }
+      },
+      "Downloads": {
+        "type": "dir",
+        "children": {
+          "100% legal": {
+            "type": "dir",
+            "children": {
+              "ram_128gb_gratis.exe.crdownload": {
+                "type": "file",
+                "content": "Downloading 16GB RAM... (Stuck at 99.9% since 2012)"
+              },
+              "tutorial_hack_nasa_exe.pdf": {
+                "type": "file",
+                "content": "Panduan Meretas NASA menggunakan HTML & CSS:\nLangkah 1: Klik kanan di mana saja pada situs NASA.\nLangkah 2: Pilih 'Inspect Element'.\nLangkah 3: Ubah tag <h1> menjadi 'Hacked by Sepuh HTML'.\nLangkah 4: Ambil tangkapan layar, posting di story WA dengan lagu DJ jedag-jedug.\n\nSelamat, Anda sekarang adalah elit global hacker."
+              },
+              "pacman": {
+                "type": "dir",
+                "children": {
+                  "pacman_Sybau.sh": {
+                    "type": "file",
+                    "content": "#!/bin/bash\necho \":: Synchronizing package databases...\"\necho \"core is up to date\"\necho \"extra is up to date\"\necho \":: Starting full system upgrade...\"\necho \"upgrading archlinux-keyring... 100%\"\necho \":: System upgrade complete.\"\necho \"Flag fragment: \\x31\\x73\\x5f\""
+                  }
+                }
+              }
+            }
+          },
+          "node_modules.zip": {
+            "type": "file",
+            "content": "Size: 4.8 Terabytes. (Warning: Contains the weight of the universe)"
+          }
+        }
+      },
+      "Pictures": {
+        "type": "dir",
+        "children": {
+          "kucing": {
+            "type": "dir",
+            "children": {
+              "kucing.png": {
+                "type": "file",
+                "content": "Error: Kucingnya kabur."
+              }
+            }
+          },
+          "doksli": {
+            "type": "dir",
+            "children": {
+              "ijazah.png": {
+                "type": "file",
+                "isImage": true,
+                "content": "images/ijazah.png"
+              },
+              "doksli_aseli": {
+                "type": "dir",
+                "children": {
+                  "hengker_sejati.png": {
+                    "type": "file",
+                    "isImage": true,
+                    "content": "images/hengker_sejati.png"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "Videos": {
+        "type": "dir",
+        "children": {
+          "jangan_dibuka.mp4": {
+            "type": "file",
+            "isVideo": true,
+            "content": "https://archive.org/download/Rick_Astley_Never_Gonna_Give_You_Up/Rick_Astley_Never_Gonna_Give_You_Up.mp4"
+          },
+          "sisi_ireng": {
+            "type": "dir",
+            "children": {
+              "join_the_dark_side.jpeg": {
+                "type": "file",
+                "isImage": true,
+                "content": "images/join_the_dark_side.jpeg"
+              }
+            }
+          }
+        }
+      },
+      "Music": {
+        "type": "dir",
+        "children": {
+          "unravel.mp3": {
+            "type": "file",
+            "isAudio": true,
+            "content": "music/unravel.mp3"
+          },
+          "katharsis.mp3": {
+            "type": "file",
+            "isAudio": true,
+            "content": "music/katharsis.mp3"
+          },
+          "tamsis": {
+            "type": "dir",
+            "children": {
+              "foto_dari_galang.jpeg": {
+                "type": "file",
+                "isImage": true,
+                "content": "images/foto_dari_galang.jpeg"
+              }
+            }
+          }
+        }
+      },
+      "info.txt": {
+        "type": "file",
+        "content": "1. Selesaikan challenge ini.\n2. Cari flag dari folder.\n3. Simpan dan kumpulkan flag yang didapatkan.\n4. Jangan lupa bilang 'I use Arch btw' ke semua orang."
+      }
+    }
+  }
+]
