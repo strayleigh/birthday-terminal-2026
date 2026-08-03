@@ -8,7 +8,7 @@
     "fs_nodes": {
       "readme.txt": {
         "type": "file",
-        "content": "Selamat datang! kamu sudah melakukan langkah pertama.\nChallenge ini ada 5 level, selamat mencoba!\n\nFlag pertama:\nFLAG{w3lc0m3_t0_th3_sh3ll}\n\nSubmit menggunakan:\nsubmit FLAG{w3lc0m3_t0_th3_sh3ll}\n\nOhiya, kalo bingung commandnya ketik aja \"help\".\nTiap level juga ada hint, cara pakainya ketik aja \"hint\" di terminal.\nGood Luck~"
+        "content": "\nSelamat datang!\nChallenge ini ada 5 level, selamat mencoba!\n\nFlag pertama:\nFLAG{w3lc0m3_t0_th3_sh3ll}\n\nSubmit menggunakan:\nsubmit FLAG{w3lc0m3_t0_th3_sh3ll}\n\nOiya, kalo bingung commandnya ketik aja \"help\".\nTiap level juga ada hint, cara pakainya ketik aja \"hint\" di terminal.\nDan kalo mau copy pake CTRL+C (gausa pake shift).\nGood Luck~"
       }
     }
   },
@@ -21,7 +21,7 @@
     "fs_nodes": {
       "readme.txt": {
         "type": "file",
-        "content": "Level ini sedikit berbeda.\n\nFlag sudah disembunyikan menggunakan dua metode encoding.\nCari file yang tersedia, lalu kembalikan ke bentuk semula.\n\nPetunjuk:\nUrutan decoding juga penting."
+        "content": "\nFlag disembunyikan menggunakan dua metode encoding.\nCari file yang tersedia, lalu kembalikan ke bentuk semula.\n\nPetunjuk:\nUrutan decoding juga penting."
       },
       "encoded.txt": {
         "type": "file",
@@ -38,7 +38,7 @@
     "fs_nodes": {
       "info.txt": {
         "type": "file",
-        "content": "Sherlock Holmes tidak pernah hanya melihat.\nIa juga memperhatikan.\n\nGunakan command feh (gambar) untuk melihat gambar."
+        "content": "\nSherlock Holmes tidak pernah hanya melihat.\nIa juga memperhatikan.\n\nGunakan command feh (gambar) untuk melihat gambar."
       },
       "walter.png": {
         "type": "file",
@@ -165,7 +165,7 @@
           },
           "teto.txt": {
             "type": "file",
-            "content": "=== Teto Word of the Day ===\n\nSAWIT\n\nKalau tahu, ya tahu."
+            "content": "\n=== Teto Word of the Day ===\n\nSAWIT\n\nKalau tahu, ya tahu."
           }
         }
       },
@@ -237,6 +237,10 @@
       "Videos": {
         "type": "dir",
         "children": {
+          "info.txt": {
+            "type": "file",
+            "content": "Oiya, kalo mau buka media bisa pake command \"feh (nama file)\" atau \"play (nama file)\""
+          },
           "jangan_dibuka.mp4": {
             "type": "file",
             "isVideo": true,
@@ -245,6 +249,11 @@
           "literally_me": {
             "type": "dir",
             "children": {
+              "literally_me.mp4": {
+                "type": "file",
+                "isVideo": true,
+                "content": "https://youtube.com/shorts/rbfOYGtTwFM?si=bdJ4g-btyIX2L0In"
+              },
               "ryan_gosling.jpg": {
                 "type": "file",
                 "isImage": true,
@@ -257,10 +266,6 @@
       "Music": {
         "type": "dir",
         "children": {
-          "info.txt": {
-            "type": "file",
-            "content": "Btw, kalo mau setel lagu/media bisa pake command \"play\"."
-          },
           "unravel.mp3": {
             "type": "file",
             "isAudio": true,
@@ -285,7 +290,7 @@
       },
       "info.txt": {
         "type": "file",
-        "content": "1. Selesaikan challenge ini.\n2. Cari flag dari folder.\n3. Simpan dan kumpulkan flag yang didapatkan.\n4. Jangan lupa bilang 'I use Arch btw' ke semua orang.\n\nOiya, kalo mau buka media bisa pake command \"feh (nama file)\" atau \"play (nama file)\""
+        "content": "1. Selesaikan challenge ini.\n2. Cari flag dari folder.\n3. Simpan dan kumpulkan flag yang didapatkan.\n4. Jangan lupa bilang 'I use Arch btw' ke semua orang.\n\nFormat flag untuk level ini FLAG{...}."
       }
     }
   }

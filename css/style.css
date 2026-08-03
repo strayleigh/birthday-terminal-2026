@@ -430,7 +430,7 @@ header {
   height: 160px;
   background: linear-gradient(135deg, #21262d 0%, #161b22 100%);
   border: 3px solid var(--border-color);
-  border-radius: 16px;
+  border-radius: 0;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.8), 0 0 20px var(--accent-glow);
   display: flex;
   align-items: center;
@@ -954,7 +954,7 @@ footer a:hover {
 .artwork-card {
   background: rgba(0, 0, 0, 0.4);
   border: 1px solid var(--border-color);
-  border-radius: 12px;
+  border-radius: 0;
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -1013,7 +1013,7 @@ footer a:hover {
   width: 100%;
   flex-grow: 1;
   min-height: 0;
-  border-radius: 8px;
+  border-radius: 0;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -1031,7 +1031,7 @@ footer a:hover {
   font-size: 0.95rem !important;
   font-weight: bold;
   margin-top: 0 !important;
-  border-radius: 6px !important;
+  border-radius: 0 !important;
   flex-shrink: 0;
 }
 

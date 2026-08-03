@@ -207,6 +207,8 @@ export class UIManager {
           videoId = src.split("youtu.be/")[1].split("?")[0];
         } else if (src.includes("embed/")) {
           videoId = src.split("embed/")[1].split("?")[0];
+        } else if (src.includes("shorts/")) {
+          videoId = src.split("shorts/")[1].split("?")[0];
         }
         
         iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
