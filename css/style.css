@@ -39,6 +39,17 @@ body.theme-dracula {
   --text-muted: #6272a4;
 }
 
+body.theme-tokyo-night {
+  --bg-color: #1a1b26;
+  --panel-bg: rgba(22, 22, 30, 0.7);
+  --border-color: rgba(122, 162, 247, 0.35);
+  --accent-color: #7aa2f7;
+  --accent-glow: rgba(122, 162, 247, 0.25);
+  --bg-glow-color: rgba(122, 162, 247, 0.04);
+  --text-primary: #a9b1d6;
+  --text-muted: #565f89;
+}
+
 
 
 * {

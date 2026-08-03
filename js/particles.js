@@ -34,6 +34,7 @@ export function initParticles() {
     const body = document.body;
     if (body.classList.contains("theme-ubuntu")) return "rgba(233, 84, 32,";
     if (body.classList.contains("theme-dracula")) return "rgba(255, 121, 198,";
+    if (body.classList.contains("theme-tokyo-night")) return "rgba(122, 162, 247,";
     return "rgba(74, 246, 38,";
   }
 
@@ -41,6 +42,7 @@ export function initParticles() {
     const body = document.body;
     if (body.classList.contains("theme-ubuntu")) return "#e95420";
     if (body.classList.contains("theme-dracula")) return "#ff79c6";
+    if (body.classList.contains("theme-tokyo-night")) return "#7aa2f7";
     return "#4af626";
   }
 

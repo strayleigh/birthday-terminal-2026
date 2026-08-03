@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Load and apply the saved theme
   const savedTheme = StorageManager.getTheme();
   const body = document.body;
-  const themes = ["theme-ubuntu", "theme-dracula"];
+  const themes = ["theme-ubuntu", "theme-dracula", "theme-tokyo-night"];
   themes.forEach(t => body.classList.remove(t));
   if (savedTheme && savedTheme !== "dark") {
     body.classList.add(`theme-${savedTheme}`);

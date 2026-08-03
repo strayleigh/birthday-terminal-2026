@@ -119,7 +119,7 @@ export class UIManager {
   static applyTheme(themeName) {
     const body = document.body;
     // Remove existing themes
-    const themes = ["theme-ubuntu", "theme-dracula"];
+    const themes = ["theme-ubuntu", "theme-dracula", "theme-tokyo-night"];
     themes.forEach(t => body.classList.remove(t));
     
     // Add new theme if not default dark

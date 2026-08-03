@@ -453,6 +453,21 @@ export class TerminalApp {
         white: "#f8f8f2"
       },
 
+      "tokyo-night": {
+        background: "#1a1b26",
+        foreground: "#a9b1d6",
+        cursor: "#7aa2f7",
+        cursorAccent: "#1a1b26",
+        selectionBackground: "rgba(122, 162, 247, 0.3)",
+        black: "#15161e",
+        red: "#f7768e",
+        green: "#9ece6a",
+        yellow: "#e0af68",
+        blue: "#7aa2f7",
+        magenta: "#bb9af7",
+        cyan: "#7dcfff",
+        white: "#c0caf5"
+      }
     };
     return themes[themeName] || themes.dark;
   }
