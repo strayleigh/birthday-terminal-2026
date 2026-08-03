@@ -688,8 +688,7 @@ File Modification Date/Time     : 2026:07:25 12:30:00+07:00
 File Permissions                : -rw-r--r--
 File Type                       : PNG
 File Type Extension             : png
-MIME Type                       : image/png
-Comment                         : 3v3ry0n3_`;
+MIME Type                       : image/png`;
     }
 
     return `ExifTool Version Number         : 12.40
